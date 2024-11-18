@@ -16,3 +16,9 @@ export const loginUser = async(email, password) => {
     
     return response.data
 }
+
+export const getSession = async () => {
+    const response = await api.get('/person/session')
+
+    return response.data
+}

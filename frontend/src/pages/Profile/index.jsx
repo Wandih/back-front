@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './styles.css'
 import { useNavigate } from 'react-router-dom';
+import { getSession } from '../../api/person';
 
 export default function Profile() {
   const [id, setId] = useState('');
@@ -12,12 +13,14 @@ export default function Profile() {
   const navigate = useNavigate();
 
   async function carregarPerfil() {
-    const  mockUser = {
-      id: 1,
-      nome: 'Fulano',
-      email: '',
-    }
-    return mockUser
+    const response = await getSession()
+
+    setNome(response.msg.name)
+    setEmail(response.msg.email)
+    setId(response.msg.id)
+  
+    return 
+  
   }
 
   const handleSaveUpdate = async () => {

@@ -19,12 +19,11 @@ export default function SignUp() {
     
     const response = await createPerson({nome, email, senha})
 
-    console.log(response)
 
     if(response.msg.id){
       navigate('/login')
     }else{
-      alert("Não foi possível encontrar o usuário")
+      alert("Não foi possível cadastrar o usuário. Tente novamente mais tarde")
     }
   
    

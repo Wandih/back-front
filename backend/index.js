@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 app.use("/person", routersPerson)
-const PORT = 3000
+const PORT = 5173
 
 database.db
     .sync({ force: false })
